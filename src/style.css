@@ -73,8 +73,13 @@ input[type=checkbox]:hover {
   cursor: pointer;
 }
 
+.icon {
+  font-size: 20px;
+  color: rgb(175, 175, 175);
+}
+
 #completed {
-  padding: 15px;
+  padding: 13px;
   text-align: center;
   font-size: 20px;
 }

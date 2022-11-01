@@ -1,6 +1,6 @@
 # Todolist![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Todolist
+# To-Do-List
 
 ## Description
 
@@ -39,9 +39,9 @@ This is an awesome application that grants users the ability to save list of act
 step 1:
 Clone this repo locally using git in the command line and the following command
 
-<!-- ```
-git clone git@github.com:Htetaungkyaw71/Todolist.git
-``` -->
+```
+https://github.com/Progress2002/To-Do-List.git
+```
 
 Alternatively, you can just download the complete zip file and extract the folder in your directory
 
@@ -70,4 +70,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](https://github.com/Progress2002/Webpack-project/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/Progress2002/To-Do-List/blob/main/LICENSE) licensed.

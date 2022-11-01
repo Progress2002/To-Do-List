@@ -15,7 +15,7 @@ body {
   width: 94%;
   margin: auto;
   background-color: aliceblue;
-  box-shadow: 0px 5px 9px gray;
+  box-shadow: 0 5px 9px gray;
 }
 
 .heading {
@@ -57,7 +57,6 @@ input[type=text] {
   align-items: center;
   width: 85%;
 }
-
 
 input[type=checkbox] {
   display: inline-block;

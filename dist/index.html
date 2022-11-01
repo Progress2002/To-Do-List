@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/b21ce73c3c.js" crossorigin="anonymous"></script>
     <title>To Do list</title>
   <script defer src="main.js"></script></head>
   <body>
@@ -10,20 +11,18 @@
       <div class="heading">
         <h2>Today's To Do</h2>
       </div>
+      <hr>
       <div class="add">
         <form action="">
-          <input type="text" name="text" id="todo" placeholder="Add to your list...">
+          <input type="text" name="text" id="text" placeholder="Add to your list...">
         </form>
       </div>
-      <div class="todo-list">
-        <p>
-          <input type="checkbox">
-          Today to do list
-        </p>
-        <div>😎</div>
-      </div>
-      <div class="completed">
-        <h4>Clear all completed</h4>
+      <hr>
+      <!-- List container--------- -->
+      <div class="todo-list"></div>
+            <!-- List container ends here--------- -->
+      <div id="completed">
+        <p class="complete">Clear all completed</p>
       </div>
     </main>
   </body>

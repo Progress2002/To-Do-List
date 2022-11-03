@@ -1,10 +1,12 @@
+import toggleComplete from './complete.js'; // eslint-disable-line 
+
 const completeBtn = document.querySelector('.complete');
 const toDoListContainer = document.querySelector('.todo-list');
 const form = document.querySelector('form');
 
 let tasks = []; // eslint-disable-line 
 
-const updateStorage = (task) => {
+export const updateStorage = (task) => {
   localStorage.setItem('My-To-Do-List', JSON.stringify(task));
 };
 
@@ -57,29 +59,12 @@ export const remove = (element) => {
   });
 };
 
-// mark a task as completed or not------------
-const toggleComplete = (element) => {
-  element.classList.toggle('completed');
-  let elementPerentId = element.parentNode.parentNode.parentNode.id;
-  elementPerentId = parseInt(elementPerentId, 10);
-  tasks.forEach((task) => {
-    if (task.index === elementPerentId) {
-      const isIncluded = element.classList.contains('completed');
-      if (isIncluded) {
-        task.completed = true;
-      } else {
-        task.completed = false;
-      }
-      updateStorage(tasks);
-    }
-  });
-};
-
 export const markAsCompleted = (element) => {
   element.querySelectorAll('.checkbox').forEach((box) => {
-    box.addEventListener('click', () => {
+    box.addEventListener('change', () => {
       const item = box.nextElementSibling;
       toggleComplete(item);
+      updateStorage(tasks);
     });
   });
 };
@@ -126,10 +111,10 @@ export const editTask = (element) => {
 const add = (task) => {
   render(task);
   tasks.push(task);
-  remove(toDoListContainer);
-  markAsCompleted(toDoListContainer);
-  editTask(toDoListContainer);
   updateStorage(tasks);
+  remove(toDoListContainer);
+  editTask(toDoListContainer);
+  markAsCompleted(toDoListContainer);
   cleareCompleted(toDoListContainer);
 };
 

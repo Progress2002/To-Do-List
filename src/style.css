@@ -85,6 +85,7 @@ input[type=checkbox]:hover {
 .icon {
   font-size: 20px;
   color: rgb(175, 175, 175);
+  cursor: pointer;
 }
 
 .active {
@@ -93,6 +94,7 @@ input[type=checkbox]:hover {
 
 .delete {
   color: rgb(223, 32, 32);
+  cursor: pointer;
 }
 
 #completed {
@@ -110,6 +112,7 @@ input[type=checkbox]:hover {
   border: none;
   background-color: inherit;
   color: rgb(134, 131, 131);
+  cursor: pointer;
 }
 
 #completed .complete:hover {

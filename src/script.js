@@ -1,5 +1,7 @@
 const completeBtn = document.querySelector(".complete");
 const toDoListContainer = document.querySelector(".todo-list");
+const form = document.querySelector("form");
+
 let tasks = [];
 
 
@@ -124,7 +126,7 @@ export const editTask = (element) => {
   })}
 
   //   // Add new task to the list---------
-export const add = (task) => {
+const add = (task) => {
   render(task);
   tasks.push(task);
   remove(toDoListContainer);
@@ -133,5 +135,24 @@ export const add = (task) => {
   updateStorage(tasks);
   cleareCompleted(toDoListContainer)
 };
+
+export const formaction = () => {
+  form.onsubmit = (e) => {
+    e.preventDefault();
+    const { text } = e.target;
+    add({
+      description: text.value,
+      completed: false,
+      index: tasks.length,
+    });
+    text.value = "";
+  };
+}
+
+if (localStorage.getItem("My-To-Do-List")) {
+  tasks = JSON.parse(localStorage.getItem("My-To-Do-List"));
+} else {
+  localStorage.setItem("My-To-Do-List", JSON.stringify([]));
+}
 
 export {tasks}

@@ -1,4 +1,4 @@
-import toggleComplete from "./complete.js";
+import toggleComplete from './complete.js'; // eslint-disable-line 
 
 const completeBtn = document.querySelector('.complete');
 const toDoListContainer = document.querySelector('.todo-list');
@@ -86,7 +86,6 @@ export const cleareCompleted = (element) => {
       tasks[i].index = i;
       updateStorage(tasks);
     }
-    editTask(toDoListContainer);
     updateStorage(tasks);
   });
 };

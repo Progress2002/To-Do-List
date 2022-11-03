@@ -61,7 +61,7 @@ export const remove = (element) => {
 
 export const markAsCompleted = (element) => {
   element.querySelectorAll('.checkbox').forEach((box) => {
-    box.addEventListener('click', () => {
+    box.addEventListener('change', () => {
       const item = box.nextElementSibling;
       toggleComplete(item);
       updateStorage(tasks);

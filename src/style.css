@@ -7,7 +7,7 @@
 body {
   display: flex;
   min-height: 100vh;
-  background-color: aliceblue;
+  background: linear-gradient(-45deg, white 50%, #f8f8f8 50%);
   font-family: sans-serif;
 }
 

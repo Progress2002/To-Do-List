@@ -7,7 +7,7 @@
 body {
   display: flex;
   min-height: 100vh;
-  background-color: aliceblue;
+  background: linear-gradient(-45deg, white 50%, #f8f8f8 50%);
   font-family: sans-serif;
 }
 
@@ -58,6 +58,16 @@ input[type=text] {
   width: 85%;
 }
 
+.list-description p {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
 input[type=checkbox] {
   display: inline-block;
   border: 0;
@@ -77,6 +87,14 @@ input[type=checkbox]:hover {
   color: rgb(175, 175, 175);
 }
 
+.active {
+  display: none;
+}
+
+.delete {
+  color: rgb(223, 32, 32);
+}
+
 #completed {
   padding: 13px;
   text-align: center;
@@ -87,13 +105,15 @@ input[type=checkbox]:hover {
   cursor: pointer;
 }
 
-#completed .complete {
+#completed button {
   font-size: 19px;
-  color: rgb(177, 173, 173);
+  border: none;
+  background-color: inherit;
+  color: rgb(134, 131, 131);
 }
 
 #completed .complete:hover {
-  color: rgb(88, 86, 86);
+  color: rgb(37, 36, 36);
 }
 
 @media (min-width: 768px) {

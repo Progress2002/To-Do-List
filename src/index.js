@@ -1,35 +1,27 @@
 import './style.css';
+import {
+  render, remove, markAsCompleted, editTask, cleareCompleted, tasks, formaction,
+} from './script.js';
 
 const toDoListContainer = document.querySelector('.todo-list');
 
-const tasks = [
-  {
-    description: 'complete my project',
-    completed: false,
-    index: 5,
-  },
-  {
-    description: 'wash the dishes',
-    completed: true,
-    index: 3,
-  },
-];
-
-const render = (task) => {
-  toDoListContainer.innerHTML += `
-  <div class="list">
-    <div class="list-description">
-      <input type="checkbox">
-      <p>${task.description}</p>
-    </div>
-    <div class="icon-container">
-      <i class="fa-solid fa-ellipsis-vertical icon"></i>
-    </div>
-  </div>
-  <hr>
-  `;
-};
+formaction();
 
 document.addEventListener('DOMContentLoaded', () => {
   tasks.sort((a, b) => a.index - b.index).map((item) => render(item));
+  remove(toDoListContainer);
+  tasks.forEach((task) => {
+    if (task.completed) {
+      const taskIndex = task.index;
+      toDoListContainer.querySelectorAll('.text').forEach((text) => {
+        const textParentNodeId = parseInt(text.parentNode.parentNode.parentNode.id, 10);
+        if (textParentNodeId === taskIndex) {
+          text.classList.add('completed');
+        }
+      });
+    }
+  });
+  editTask(toDoListContainer);
+  markAsCompleted(toDoListContainer);
+  cleareCompleted(toDoListContainer);
 });

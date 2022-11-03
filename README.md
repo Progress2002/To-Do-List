@@ -25,13 +25,11 @@ This is an awesome application that grants users the ability to save list of act
   - [ ] Stylelint
   - [ ] ESlint
 
-<!-- ## Live Demo 
+## Live Demo 
 
-[Live Demo Link](https://htetaungkyaw71.github.io/awesome-books/) -->
+[Live Demo Link](https://progress2002.github.io/To-Do-List/dist/)
 
-<!-- ## Link to Presentation on this Project
 
-[See Presentation]() -->
 
 
 ## Getting Started

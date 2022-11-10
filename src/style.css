@@ -33,6 +33,10 @@ h2 {
   width: 100%;
 }
 
+form {
+  display: flex;
+}
+
 input[type=text] {
   padding: 15px;
   display: block;
@@ -42,6 +46,13 @@ input[type=text] {
   font-size: 18px;
   font-style: italic;
   background-color: inherit;
+}
+
+button[type=submit] {
+  border: none;
+  background-color: inherit;
+  margin-right: 15px;
+  cursor: pointer;
 }
 
 .todo-list .list {
@@ -101,6 +112,7 @@ input[type=checkbox]:hover {
   padding: 13px;
   text-align: center;
   font-size: 20px;
+  background-color: rgb(223, 219, 219);
 }
 
 #completed:hover {

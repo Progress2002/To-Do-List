@@ -43,7 +43,10 @@ https://github.com/Progress2002/To-Do-List.git
 
 Alternatively, you can just download the complete zip file and extract the folder in your directory
 
-Step 2:
+step 2:
+Run `npm install` to install the project devDependencies
+
+Step 3:
 Copy All Project files and run using VSCODE. HTML can be viewed in browser.
 
 

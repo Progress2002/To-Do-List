@@ -53,6 +53,7 @@ button[type=submit] {
   background-color: inherit;
   margin-right: 15px;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .todo-list .list {

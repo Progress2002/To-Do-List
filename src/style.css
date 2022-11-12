@@ -23,10 +23,12 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 15px;
+  background-color: rgb(80, 80, 236);
+  color: #fff;
 }
 
 h2 {
-  font-weight: normal;
+  font-weight: bolder;
 }
 
 .add {
@@ -94,18 +96,8 @@ input[type=checkbox]:hover {
   cursor: pointer;
 }
 
-.icon {
-  font-size: 20px;
-  color: rgb(175, 175, 175);
-  cursor: pointer;
-}
-
-.active {
-  display: none;
-}
-
 .delete {
-  color: rgb(223, 32, 32);
+  color: rgb(221, 50, 50);
   cursor: pointer;
 }
 

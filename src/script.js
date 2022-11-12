@@ -20,8 +20,7 @@ export const render = (task) => {
       <p contenteditable="true" class="text" spellcheck="false">${task.description}</p>
     </div>
     <div class="icon-container">
-      <i class="fa-solid fa-ellipsis-vertical icon"></i>
-      <i class="fa-regular fa-trash-can delete active"></i>
+      <i class="fa-regular fa-trash-can delete "></i>
     </div>
   </div>
   <hr>
@@ -40,21 +39,11 @@ const removeId = (id) => {
 };
 
 export const remove = (element) => {
-  element.querySelectorAll('.icon').forEach((icon) => {
-    icon.addEventListener('click', (e) => {
+  element.querySelectorAll('.delete').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
       const parent = e.target.parentNode.parentNode.parentNode;
-      icon.classList.add('active');
-      icon.nextElementSibling.classList.remove('active');
-      setTimeout(() => {
-        icon.nextElementSibling.classList.add('active');
-        icon.classList.remove('active');
-      }, 4000);
-      element.querySelectorAll('.delete').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          removeId(parseInt(parent.id, 10));
-          parent.remove();
-        });
-      });
+      removeId(parseInt(parent.id, 10));
+      parent.remove();
     });
   });
 };

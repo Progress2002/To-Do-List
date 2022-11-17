@@ -8,7 +8,7 @@ const toDoListContainer = document.querySelector('.todo-list');
 formaction();
 
 document.addEventListener('DOMContentLoaded', () => {
-  tasks.sort((a, b) => a.index - b.index).map((item) => render(item));
+  tasks.sort((a, b) => a.index - b.index).map((item) => render(item, toDoListContainer));
   remove(toDoListContainer);
   tasks.forEach((task) => {
     if (task.completed) {

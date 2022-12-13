@@ -1,7 +1,5 @@
-import { tasks } from './script.js'; // eslint-disable-line 
-
 // mark a task as completed or not------------
-const toggleComplete = (element) => {
+const toggleComplete = (element, tasks) => {
   element.classList.toggle('completed');
   let elementPerentId = element.parentNode.parentNode.parentNode.id;
   elementPerentId = parseInt(elementPerentId, 10);

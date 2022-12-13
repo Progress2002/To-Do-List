@@ -1,6 +1,5 @@
 import toggleComplete from './complete.js'; // eslint-disable-line 
 
-const completeBtn = document.querySelector('.complete');
 const toDoListContainer = document.querySelector('.todo-list');
 const form = document.querySelector('form');
 
@@ -14,17 +13,17 @@ export const updateStorage = (task) => {
 export const render = (task, toDoListContainer) => {
   toDoListContainer.innerHTML += `
   <div id="${task.index}">
-  <div class="list">
-    <div class="list-description">
-      <input type="checkbox" class="checkbox">
-      <p contenteditable="true" class="text" spellcheck="false">${task.description}</p>
+    <div class="list">
+      <div class="list-description">
+        <input type="checkbox" class="checkbox">
+        <p contenteditable="true" class="text" spellcheck="false">${task.description}</p>
+      </div>
+      <div class="icon-container">
+        <i class="fa-regular fa-trash-can delete "></i>
+      </div>
     </div>
-    <div class="icon-container">
-      <i class="fa-regular fa-trash-can delete "></i>
-    </div>
+    <hr>
   </div>
-  <hr>
-</div>
   `;
 };
 
@@ -33,7 +32,6 @@ const removeId = (id) => {
   tasks = tasks.filter((task) => task.index !== id);
   for (let i = 0; i < tasks.length; i += 1) {
     tasks[i].index = i;
-    updateStorage(tasks);
   }
   updateStorage(tasks);
 };
@@ -48,18 +46,18 @@ export const remove = (element) => {
   });
 };
 
-export const markAsCompleted = (element) => {
+export const markAsCompleted = (element, tasks) => {
   element.querySelectorAll('.checkbox').forEach((box) => {
     box.addEventListener('change', () => {
       const item = box.nextElementSibling;
-      toggleComplete(item);
+      toggleComplete(item, tasks);
       updateStorage(tasks);
     });
   });
 };
 
 // Cleare completed files---------
-export const cleareCompleted = (element) => {
+export const cleareCompleted = (element, completeBtn, tasks) => {
   completeBtn.addEventListener('click', () => {
     element.querySelectorAll('.list').forEach((list) => {
       const taskId = parseInt(list.parentNode.id, 10);
@@ -79,19 +77,22 @@ export const cleareCompleted = (element) => {
   });
 };
 
+export const updateTaskDesc = (tasks, taskDescEl) => {
+  const textContent = taskDescEl.innerHTML;
+  const activeTextParentId = parseInt(taskDescEl.parentNode.parentNode.parentNode.id, 10);
+  tasks.forEach((task) => {
+    if (task.index === activeTextParentId) {
+      task.description = textContent;
+      updateStorage(tasks);
+    }
+  });
+};
+
 // Edith task
 export const editTask = (element) => {
   element.querySelectorAll('.text').forEach((box) => {
     box.addEventListener('input', (e) => {
-      const activeText = e.target;
-      const textContent = activeText.innerHTML;
-      const activeTextParentId = parseInt(activeText.parentNode.parentNode.parentNode.id, 10);
-      tasks.forEach((task) => {
-        if (task.index === activeTextParentId) {
-          task.description = textContent;
-          updateStorage(tasks);
-        }
-      });
+      updateTaskDesc(tasks, e.target);
     });
   });
 };
@@ -103,7 +104,7 @@ export const add = (task, tasks, toDoListContainer) => {
   updateStorage(tasks);
   remove(toDoListContainer);
   editTask(toDoListContainer);
-  markAsCompleted(toDoListContainer);
+  markAsCompleted(toDoListContainer, tasks);
 };
 
 export const formaction = () => {

@@ -11,7 +11,7 @@ export const updateStorage = (task) => {
 };
 
 // render newly added task to page --------
-export const render = (task, toDoListContainer) => {
+export const render = (task) => {
   toDoListContainer.innerHTML += `
   <div id="${task.index}">
   <div class="list">
@@ -79,7 +79,7 @@ export const cleareCompleted = (element) => {
   });
 };
 
-// Edith task
+// // edit task----------------
 export const editTask = (element) => {
   element.querySelectorAll('.text').forEach((box) => {
     box.addEventListener('input', (e) => {
@@ -96,14 +96,15 @@ export const editTask = (element) => {
   });
 };
 
-// Add new tasks
-export const add = (task, tasks, toDoListContainer) => {
-  render(task, toDoListContainer);
+//   // Add new task to the list---------
+const add = (task) => {
+  render(task);
   tasks.push(task);
   updateStorage(tasks);
   remove(toDoListContainer);
   editTask(toDoListContainer);
   markAsCompleted(toDoListContainer);
+  cleareCompleted(toDoListContainer);
 };
 
 export const formaction = () => {
@@ -114,7 +115,7 @@ export const formaction = () => {
       description: text.value,
       completed: false,
       index: tasks.length,
-    }, tasks, toDoListContainer);
+    });
     text.value = '';
   };
 };
